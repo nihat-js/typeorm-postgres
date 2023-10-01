@@ -12,7 +12,7 @@ r.get("/", async function (req: Request, res: Response) {
 })
 
 r.get("/:id", async function (req: Request, res: Response) {
-  const results = await myDataSource.getRepository(NewsPost).createQueryBuilder("news_post").where("news_post.id = :id", {id : req.id}).getOne(); 
+  const results = await myDataSource.getRepository(NewsPost).createQueryBuilder("news_post").where("news_post.id = :id", {id : req.params.id}).getOne(); 
   // .findOneBy({
   //   id: req.params.id,
   // })

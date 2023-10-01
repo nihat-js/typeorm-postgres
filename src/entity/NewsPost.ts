@@ -1,22 +1,22 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./User";
 
 @Entity()
-export class NewsPost{
+export class NewsPost {
 
   @PrimaryGeneratedColumn()
-  public id: number 
+  public id: number
 
 
   @Column()
-  public title : string
+  public title: string
 
   @Column()
-  public text : string
+  public text: string
 
-  @Column()
-  public description : string
 
-  @Column({nullable : true})
-  public createdAt : Date
+  @ManyToOne(() => User, User => User.id)
+  author: User;
+
 
 }

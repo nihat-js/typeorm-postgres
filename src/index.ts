@@ -1,10 +1,11 @@
 import * as express from "express"
 import { Request, Response } from "express"
-import { User } from "./entity/User"
+import 'dotenv/config'
 import { AppDataSource as myDataSource } from "./data-source"
+
+import { User } from "./entity/User"
 import { NewsPost } from "./entity/NewsPost"
 
-// establish database connection
 myDataSource
     .initialize()
     .then(() => {
